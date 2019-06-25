@@ -1,0 +1,17 @@
+{
+  "name": "simplestorage",
+  "version": "1.0.0",
+  "author": "Rosco Kalis <roscokalis@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "truffle-plugin-store": "file:../truffle-plugin-store"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
