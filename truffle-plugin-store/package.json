@@ -1,0 +1,13 @@
+{
+  "name": "truffle-plugin-store",
+  "version": "1.0.0",
+  "author": "Rosco Kalis <roscokalis@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [],
+  "license": "MIT",
+  "main": "store.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
