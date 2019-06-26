@@ -18,6 +18,7 @@ app.get('/', (request, response) => {
 })
 
 app.post('/artifacts', storeArtifact)
+app.get('/artifacts/:contractName', getArtifacts)
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
@@ -34,8 +35,22 @@ async function storeArtifact(request, response) {
     if (result.insertedCount == 0) {
       response.sendStatus(500)
     } else {
-      response.status(200).json(result.ops[0])
+      response.status(200).json(result)
     }
+  } catch (e) {
+    response.status(500).send(e.toString())
+  }
+}
+
+async function getArtifacts(request, response) {
+  try {
+    const client = await MongoClient.connect(mongoUrl)
+    const artifacts = client.db('truffle-university').collection('artifacts')
+    const { contractName } = request.params
+
+    const result = await artifacts.find({ contractName }).count()
+
+    response.status(200).send(result.toString())
   } catch (e) {
     response.status(500).send(e.toString())
   }
